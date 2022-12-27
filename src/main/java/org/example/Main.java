@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        //User user=new User();
         String[] names={"Yura","Dima","Pasha","Vika","Polya","Masha"};
         int[] arr=new Random().ints(1,1001).distinct().limit(1000).toArray();
         List<User> users= new ArrayList<>();
