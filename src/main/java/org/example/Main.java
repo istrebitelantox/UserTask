@@ -22,7 +22,9 @@ public class Main {
             System.out.println(users.get(i));
         }
 
-        male=users.stream().filter(x-> (x.toString().contains("Pasha")|x.toString().contains("Yura")|(x.toString().contains("Dima")))==true)
+        male=users.stream().filter(x-> (x.toString().contains("Pasha")
+                        | x.toString().contains("Yura")
+                        | (x.toString().contains("Dima"))))
                 .collect(Collectors.toList());
         System.out.println("\nMale: "+male+" \n Count of male: "+male.size());
         oldMans=users.stream().filter(x-> (x.getAge()>50))
