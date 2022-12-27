@@ -4,6 +4,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -37,12 +38,12 @@ public class Main {
         }
         System.out.println("Male: "+male+" \n Count of man: "+male.size());
         System.out.println("Old mans: "+oldMans+" \n Count of oldmans: "+oldMans.size());*/
-        System.out.println("Male: ");
-        users.stream().filter(x-> (x.toString().contains("Pasha")|x.toString().contains("Yura")|(x.toString().contains("Dima")))==true)
-                .forEach(System.out::println);
-        System.out.println("Old mans: ");
-        users.stream().filter(x-> (x.getAge()>50))
-                .forEach(System.out::println);
+        male=users.stream().filter(x-> (x.toString().contains("Pasha")|x.toString().contains("Yura")|(x.toString().contains("Dima")))==true)
+                .collect(Collectors.toList());
+        System.out.println("\nMale: "+male+" \n Count of male: "+male.size());
+        oldMans=users.stream().filter(x-> (x.getAge()>50))
+                .collect(Collectors.toList());
+        System.out.println("Old mans: "+oldMans+" \n Count of oldmans: "+oldMans.size());
         //Альтернативный вариант фильтрации
 /*        stream.filter(x-> (x.getName().equals("Pasha")|x.getName().equals("Yura")|(x.getName().equals("Dima"))==true)|(x.getAge()>50))
                 .forEach(System.out::println);*/
