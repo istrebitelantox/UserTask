@@ -1,9 +1,7 @@
 package org.example;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -24,9 +22,16 @@ public class Main {
                         | (x.toString().contains("Dima"))))
                 .collect(Collectors.toList());
         System.out.println("\nMale: "+male+" \n Count of male: "+male.size());
-        oldMans=users.stream().filter(x-> (x.getAge()>50))
+        oldMans=users.stream()
+                .filter(x-> (x.getAge()>50))
                 .collect(Collectors.toList());
         System.out.println("Old mans: "+oldMans+" \n Count of oldmans: "+oldMans.size());
+        List<User> forYoungToOld=users.stream()
+                .sorted((f1,f2)->Long.compare(f2.getAge(), f1.getAge()))
+                .toList();
+        System.out.println("Sorted from young to old: "+forYoungToOld);
+        List<User> users1=users.stream().skip(1).limit(1).collect(Collectors.toList());
+        System.out.println(users1);
 /*        Альтернативный вариант фильтрации
         stream.filter(x-> (x.getName().equals("Pasha")|x.getName().equals("Yura")|(x.getName().equals("Dima"))==true)|(x.getAge()>50))
                 .forEach(System.out::println);*/
