@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,8 +28,8 @@ public class Main {
         oldMans=users.stream().filter(x-> (x.getAge()>50))
                 .collect(Collectors.toList());
         System.out.println("Old mans: "+oldMans+" \n Count of oldmans: "+oldMans.size());
-        //Альтернативный вариант фильтрации
-/*        stream.filter(x-> (x.getName().equals("Pasha")|x.getName().equals("Yura")|(x.getName().equals("Dima"))==true)|(x.getAge()>50))
+/*        Альтернативный вариант фильтрации
+        stream.filter(x-> (x.getName().equals("Pasha")|x.getName().equals("Yura")|(x.getName().equals("Dima"))==true)|(x.getAge()>50))
                 .forEach(System.out::println);*/
 
     }
