@@ -3,7 +3,9 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +26,7 @@ public class Main {
         }
 /*        System.out.println(man);
         System.out.println(older);*/
-        for(User user:users){
+/*        for(User user:users){
             if(user.getName().equals("Dima")|user.getName().equals("Yura")|user.getName().equals("Pasha"))
             {
                 male.add(user);
@@ -32,8 +34,17 @@ public class Main {
             if(user.getAge()>50){
                 oldMans.add(user);
             }
-        }
+        }*/
         System.out.println("Male: "+male+" \n Count of man: "+male.size());
         System.out.println("Old mans: "+oldMans+" \n Count of oldmans: "+oldMans.size());
+        Stream<User> stream = users.stream();
+        stream.filter(x-> (x.toString().contains("Pasha")|x.toString().contains("Yura")|(x.toString().contains("Dima")))==true)
+                .forEach(System.out::println);
+        Stream<User>stream1=users.stream();
+        stream1.filter(x-> (x.getAge()>50))
+                .forEach(System.out::println);
+/*        stream.filter(x-> (x.getName().equals("Pasha")|x.getName().equals("Yura")|(x.getName().equals("Dima"))==true)|(x.getAge()>50))
+                .forEach(System.out::println);*/
+
     }
 }
